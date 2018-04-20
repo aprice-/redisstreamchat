@@ -1,0 +1,14 @@
+version: '2'
+services:
+ app:
+    build: ./app
+    image: app
+    ports:
+     - 3000:3000
+ redis:
+    image: redis-unstable
+    build: ./redis-unstable
+    ports: 
+     - 6379
+    labels:
+     - redis
