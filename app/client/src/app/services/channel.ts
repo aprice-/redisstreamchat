@@ -12,6 +12,8 @@ export class Channel {
 
   constructor (private channelService: ChannelService, private api: ApiService, public name: string) {
 
+    this.getMembers().subscribe(() => {});
+
     this.channelService.message
       .filter(message => message.channel === this.name)
       .subscribe(message => {

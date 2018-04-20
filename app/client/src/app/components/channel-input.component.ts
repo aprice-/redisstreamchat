@@ -28,7 +28,7 @@ export class ChannelInputComponent {
       if (args[0] === 'j' || args[0] === 'join') {
         if (args.length > 1) {
           let channel = args[1];
-          this.channelService.join(channel).subscribe(() => {});
+          this.channelService.join(channel);
         }
       }
       if (args[0] === 'p' || args[0] === 'part') {
