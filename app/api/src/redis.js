@@ -1,11 +1,5 @@
 const Redis = require('ioredis');
 
-/**
- * Reads from a stream until new event is added or time out
- * @param block number of milliseconds to block
- * @param streams array of streams to read from
- * @returns {*}
- */
 Redis.prototype.xread = function (block, ...streams) {
     if (streams.length === 0) {
         throw 'streams required';
@@ -19,15 +13,6 @@ Redis.prototype.xread = function (block, ...streams) {
     return this.send_command(...args);
 };
 
-/**
- *
- * @param key ke
- * @param value
- * @param id
- * @param maxlen
- * @param maxlenApprox
- * @returns {*}
- */
 Redis.prototype.xadd = function (key, value, id = null, maxlen = null, maxlenApprox = false) {
     let args = ['XADD', key];
 
